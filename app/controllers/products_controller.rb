@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    
+
     @product.name = params[:product][:name]
     @product.description = params[:product][:description]
     @product.price = params[:product][:price]
@@ -45,6 +45,8 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to products_path
   end
 end

@@ -22,3 +22,9 @@
 div.field_with_errors {
   display: inline-block;
 }
+nav {
+  text-align: center;
+}
+nav li {
+  display: inline-block;
+}
