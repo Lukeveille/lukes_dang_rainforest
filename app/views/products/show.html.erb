@@ -4,12 +4,38 @@
 <%= link_to 'Delete', product_path(@product), method: :delete, data: {confirm: "Are you sure you want to delete the product '#{@product.name}'? This cannot be undone!"} %>
 <%= link_to "Home Page", products_path%>
 
+<h4>Reviews:</h4>
+
 <% @reviews.each do |review| %>
-  <p>
-    Comments:
-    <br />
+  <p>    
     <%= review.comment %>
     <br />
     <%= review.created_at %>
   </p>
+<% end %>
+
+<h4>New Review:</h4>
+
+<%= form_for([@product, @review]) do |f| %>
+
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li ><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <% f.label :comment %><br />
+    <%= f.text_area :comment %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
 <% end %>
