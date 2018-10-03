@@ -1,6 +1,10 @@
 <h1>INDEX</h1>
 
 <% @products.each do |product|%>
+<hr />
   <%= render "product_info", product: product %>
   <%= link_to "Show Product", product_path(product) %>
 <% end %>
+<hr />
+
+<%= link_to "Create New Product", new_product_path %>
