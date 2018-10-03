@@ -1,4 +1,4 @@
-class ProductController < ApplicationController
+class ProductsController < ApplicationController
   def index
 
   end
@@ -24,6 +24,6 @@ class ProductController < ApplicationController
   end
 
   def destroy
-    
+
   end
 end
