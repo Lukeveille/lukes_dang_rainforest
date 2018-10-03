@@ -1,0 +1,17 @@
+*Product model + has_many reviews
+  -name - str
+  -description - text
+  -price in cents - int
+
+*Review model + belongs_to product
+  -review text - text
+  -date & time - str
+
+Index - CLASS GET
+Show - GET
+
+New - GET
+Create - POST
+Edit - GET
+Update - POST
+Destroy - POST
