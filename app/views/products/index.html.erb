@@ -1,8 +1,6 @@
 <h1>INDEX</h1>
 
 <% @products.each do |product|%>
-  <h2><%=product.name%></h2>
-  <p><%=product.description%></p>
-  <p><%=product.price%></p>
+  <%= render "product_info", product: product %>
   <%= link_to "Show Product", product_path(product) %>
 <% end %>
