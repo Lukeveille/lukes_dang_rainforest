@@ -1,20 +1,27 @@
 <%= form_for product do |f| %>
+
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this article from being saved:</h2>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :name %>
     <br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><%= product.errors[:name].join.capitalize %>
   </p>
   
   <p>
     <%= f.label :description %>
     <br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description %><%= product.errors[:description].join.capitalize %>
   </p>
   
   <p>
     <%= f.label :price %>
     <br />
-    <%= f.number_field :price %>
+    <%= f.number_field :price %><%= product.errors[:price].join(" - ").capitalize %>
   </p>
   
   <p>
