@@ -15,16 +15,26 @@
       <nav>
         <ul>
           <li><%=link_to "Home Page", products_path%></li>
-          <li><%=link_to "New Product", new_product_path%></li>
+          <li><%=link_to "New Product", new_product_path%></li> |
+          <li><%=link_to "Log in", new_session_path%></li>
+          <li><%=link_to "Sign up", new_user_path%></li>
         </ul>
       </nav>
-      
+
       <% if flash[:notice] %>
         <p class="notice"><%= flash[:notice] %></p>
       <% end %>
     </header>
 
     <main>
+      <p class="userinfo">
+        <% if current_user %>
+          Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+        <% else %>
+          <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+        <% end %>
+      </p>
+
       <%= yield %>
     </main>
 
